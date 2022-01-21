@@ -4,19 +4,23 @@ import { connect } from 'react-redux';
 import AddForm from './components/AddForm';
 import SmurfList from './components/SmurfList';
 import Header from './components/Header';
+import { useEffect } from "react";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 const App = (props)=> {
-  console.log(props)
-  fetchSmurfs();
+  const {smurfs} = props;
+  useEffect(()=>{
+    props.fetchSmurfs()
+  }, []);
+
   return (
     <div className="App">
       <Header />
 
       <main>
-        <SmurfList/>
+        <SmurfList smurfs={smurfs}/>
         <AddForm/>
       </main>
     </div>
@@ -24,7 +28,9 @@ const App = (props)=> {
 }
 
 const mapState = (state) => {
-  return state
+  return {
+    smurfs: state.results,
+  }
 }
 
 export default connect(mapState, {fetchSmurfs})(App);
