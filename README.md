@@ -49,17 +49,17 @@ In this project, you will build the reducer, actions and basic redux connects to
 ### Complete reducers/index.js
   Add in the needed state and reducer cases to hold and modify smurf error messages, loading status and smurf data. **If at all possible, add in action cases one at a time, instead of all at once. Test your state connects and reducer cases as nessisary.**
 
-  * [ ] Adds the following state values into the initialState:
+  * [x] Adds the following state values into the initialState:
       - an array of smurfs
       - a boolean indicating if the app is loading
       - a string indicating a possible error message
 
-  * [ ] Add in the arguments needed to complete a standard reducer function.
-  * [ ] Add in a reducer case to accommodate the start of a smurf fetch.
-  * [ ] Add in a reducer case to accommodate the successful smurf api fetch.
-  * [ ] Add in a reducer cases to accommodate an error.
-  * [ ] Add in a reducer case to accommodate adding a smurf (including the name, nickname, position, description and an internally generated id) into your smurf list.
-  * [ ] Add in a reducer case that adds in a value to the error message.
+  * [x] Add in the arguments needed to complete a standard reducer function.
+  * [x] Add in a reducer case to accommodate the start of a smurf fetch.
+  * [x] Add in a reducer case to accommodate the successful smurf api fetch.
+  * [x] Add in a reducer cases to accommodate an error.
+  * [x] Add in a reducer case to accommodate adding a smurf (including the name, nickname, position, description and an internally generated id) into your smurf list.
+  * [x] Add in a reducer case that adds in a value to the error message.
 
 ### Complete index.js
   Connect your application to reducer through redux with the thunk and logger middleware packages attached.
@@ -67,15 +67,15 @@ In this project, you will build the reducer, actions and basic redux connects to
 ### Complete actions/index.js
   Add in the action creators and action constants needed to add a smurf to state and fetch smurfs from the server. **If at all possible, add in action cases one at a time, instead of all at once. Test your state connects and reducer cases as necessary.**
 
-  * [ ] Add a thunk action called fetchSmurfs that triggers a loading status display in our application, performs an axios call to retrieve all smurfs from the api. Save the result of to our state and show an error if one is made.
-  * [ ] Add a standard action that allows us to add new smurf (including the name, nickname, position, summary).
-  * [ ] Add a standard action that allows us to set the value of the error message slice of state.
+  * [x] Add a thunk action called fetchSmurfs that triggers a loading status display in our application, performs an axios call to retrieve all smurfs from the api. Save the result of to our state and show an error if one is made.
+  * [x] Add a standard action that allows us to add new smurf (including the name, nickname, position, summary).
+  * [x] Add a standard action that allows us to set the value of the error message slice of state.
   
 ### Complete App.js
   Connect component to the fetchSmurfs action.
   
-  * [ ] Connect the fetchSmurfs actions to the App component.
-  * [ ] Call the fetchSmurfs action when the component first loads.
+  * [x] Connect the fetchSmurfs actions to the App component.
+  * [x] Call the fetchSmurfs action when the component first loads.
 
 ### Complete components/SmurfList.js
   Connect this component to your smurfs and loading screen state slices.
@@ -112,9 +112,10 @@ In this project, you will build the reducer, actions and basic redux connects to
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. Add your answers below.
 
 1. What problem does the context API help solve?
-
+    Context API helps us to solve the problem that occurs during props drilling. Props drilling can become tedious when you have a deeply nested component because you have to pass everything down through props from component to component. Context API allows us to reach a deeply nested component without having to pass it down. 
 2. In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
-
+    actions are informational code that contain two arguements, one being the type and the other being the payload. Actions are passed into our reducer which allows us to update our state depending on what action was enacted. A reducer is a function that takes in two arguments as well, A state and an action. This allows us to update state based on the action. A store in redux is an immutable object that holds the current state of our app. The store is what takes in our reducer so that we can add elements to our original state. The reason that the store is known as the single source of truth is because it holds all the information regarding our state and serves as the bridge between our app and the reducers as well as all actions that come with that reducer. 
 3. What does `redux-thunk` allow us to do? How does it change our `action-creators`?
-
+    redux thunk allows us to create a function inside of another function. In redux it is considered middleware that holds all the actions that return a function rather than an action object. It is used to dispatch synchronous functions after all asynchronous actions have been run. 
 4. What is your favorite state management system you've learned and this sprint? Please explain why!
+    My favorite state management system is the the context API system, I love this when dealing with passing down state. It is so simple and strait forward that anybody can do it and it is so fast especially when dealing with a complicated application with deeply nested components within it!
