@@ -8,7 +8,8 @@ import Header from './components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
-const App = ()=> {
+const App = (props)=> {
+  console.log(props)
   fetchSmurfs();
   return (
     <div className="App">

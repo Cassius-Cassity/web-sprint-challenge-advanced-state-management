@@ -11,7 +11,6 @@ export const initialState = {
 }
 
 const reducer = (state = initialState, action)=>{
-    console.log('reducer', action);
     switch(action.type){
         case SMURF_FETCH_START:
             return {
